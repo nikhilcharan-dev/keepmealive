@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
 
-import AddUrl from "./components/addUrl.jsx";
-import EditUrl from "./components/editUrl.jsx";
+
+const AddUrl = React.lazy(() => import("./components/addUrl.jsx"));
+const EditUrl = React.lazy(() => import("./components/editUrl.jsx"));
 
 import styles from './dashboard.module.css';
 
@@ -108,27 +109,21 @@ const Dashboard = () => {
             <h2>User Details</h2>
             <p>Username: {user.username}</p>
             <p>Email: {user.email}</p>
-            <p>Duration: {user.pingRange} minutes</p>
-            <p>Next Ping At: {user.nextPingAt}</p>
 
 
             <h2>URLs</h2>
             <button onClick={() => setAddUrlVisible(!addUrlVisible)}>Add URL</button>
             {addUrlVisible && <AddUrl setUrls={setUrls} setChanges={setChanges} setAddUrlVisible={setAddUrlVisible} />}
-            {urls.map((url) => (
-                <div key={url}>
-                    <p>{url}</p>
+            {Array.isArray(urls) && urls.map((url, id) => (
+                <div key={id}>
+                    <p>Address: {url.address}</p>
+                    <p>Status: {url.status}</p>
+                    <p>Range: {url.pingFrequency}</p>
                     <button onClick={() => setEditUrlVisible(!editUrlVisible)}>Edit URL</button>
-                    <button onClick={() => handleUrlDelete(url)} >Delete Url</button>
-                    {editUrlVisible && <EditUrl url={url} setUrls={setUrls} setChanges={setChanges} setEditUrlVisible={setEditUrlVisible} />}
+                    <button onClick={() => handleUrlDelete(url.address)} >Delete Url</button>
+                    {editUrlVisible && <EditUrl url={url} setUrls={setUrls} setChanges={setChanges} setEditUrlVisible={setEditUrlVisible} urlId={id} />}
                 </div>
             ))}
-            <h2>Set Duration</h2>
-            <p>Set the duration for the next ping (in minutes):</p>
-            <div>
-                <input type='number' value={duration} onChange={(e) => setDuration(e.target.value - '0')} />
-                <button type='submit' onClick={handleDurationChange}>Set</button>
-            </div>
 
             <button onClick={handleLogout}>Logout</button>
         </section>
