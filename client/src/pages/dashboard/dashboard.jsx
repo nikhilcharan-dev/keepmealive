@@ -21,6 +21,10 @@ const Dashboard = () => {
 
     const [duration, setDuration] = useState(15);
 
+    if(!user) {
+        window.location.href = "/authentication";
+    }
+
     useEffect(() => {
         const UpdateUserData = async () => {
             try {
