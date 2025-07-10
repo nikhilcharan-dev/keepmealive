@@ -17,12 +17,12 @@ const PORT = process.env.PORT || 5000;
 
 // middleware
 const allowedOrigins = [
-    'http://localhost:3000',
+    'http://localhost:5173',
 ]
 
 const corsOption = {
     origin: (origin, callback) => {
-        if (!origin || allowedOrigins.split(',').includes(origin)) {
+        if (!origin || allowedOrigins.includes(origin)) {
             callback(null, true);
         } else {
             callback(new Error('Not allowed by CORS'));
@@ -31,6 +31,7 @@ const corsOption = {
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true,
 };
+
 app.use(cors()); // add corsOptions on deployment
 app.use(express.static('public'));
 app.use(express.json());

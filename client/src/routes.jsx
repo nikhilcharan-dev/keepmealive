@@ -10,7 +10,7 @@ const routes = [
         element: <Layout />,
         children: [
             {
-                path: '', element: Home
+                path: '/', element: <Home />
             }
         ]
     },
