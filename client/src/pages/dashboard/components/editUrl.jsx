@@ -69,7 +69,6 @@ const EditUrl = ({ url, setUrls, setChanges, setEditUrlVisible, urlId }) => {
                 <div>
                     <input type="text" placeholder="Enter URL" value={newUrl} onChange={(e) => setNewUrl(e.target.value)} />
                     <p>{isValid ? "valid" : "in-valid"}</p>
-                    <input type="number" value={duration} onChange={(e) => setDuration(e.target.value)} />
                 </div>
 
                 <button type="submit">Save Changes</button>

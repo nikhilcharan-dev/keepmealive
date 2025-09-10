@@ -18,6 +18,7 @@ const PORT = process.env.PORT || 5000;
 // middleware
 const allowedOrigins = [
     'http://localhost:5173',
+    'https://keepmealive.nixquest.live/'
 ]
 
 const corsOption = {

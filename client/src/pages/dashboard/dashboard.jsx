@@ -122,7 +122,6 @@ const Dashboard = () => {
                 <div key={id}>
                     <p>Address: {url.address}</p>
                     <p>Status: {url.status}</p>
-                    <p>Range: {url.pingFrequency}</p>
                     <button onClick={() => setEditUrlVisible(!editUrlVisible)}>Edit URL</button>
                     <button onClick={() => handleUrlDelete(url.address)} >Delete Url</button>
                     {editUrlVisible && <EditUrl url={url} setUrls={setUrls} setChanges={setChanges} setEditUrlVisible={setEditUrlVisible} urlId={id} />}

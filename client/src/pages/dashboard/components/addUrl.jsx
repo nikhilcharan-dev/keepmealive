@@ -66,7 +66,7 @@ const AddUrl = ({ setUrls, setChanges, setAddUrlVisible }) => {
             <form className={styles.form} onSubmit={addUrl}>
                 <div>
                     https://<input type="text" placeholder="Enter URL" onChange={(e) => setUrl(e.target.value)} />
-                    { url.length > 0 && <p>{isValid ? "valid" : "in-valid"}</p> }
+                    { url.length > 0 && <p>{isValid ? "✅valid" : "❌in-valid"}</p> }
                 </div>
                 <button type="submit">Add URL</button>
             </form>

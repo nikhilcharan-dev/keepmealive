@@ -5,12 +5,6 @@ const UrlSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    pingFrequency: {
-        type: Number,
-        required: true,
-        min: 5,
-        max: 30,
-    },
     status: String
 })
 
