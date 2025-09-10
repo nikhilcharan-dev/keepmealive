@@ -4,6 +4,8 @@ import authMiddleware from "../auth/auth.js";
 import axios from "axios";
 
 const router = Router();
+const ALPHA = process.env.JS_SERVER_ONE;
+const BETA = process.env.JS_SERVER_TWO;
 
 const validateURL = async (url) => {
     try {
@@ -39,7 +41,7 @@ router.put('/add-url', authMiddleware, async (req, res) => {
             { _id: userId },
             { $push: { urls: { address: urlAddress, pingFrequency: duration } } }
         );
-
+        axios.post(`https://kma-${user.worker}-server.nixquest.live/api/${user.worker}/edit-process`, {});
         return res.status(200).json({ message: "URL added successfully" });
     } catch(err) {
         console.log(err);
@@ -55,6 +57,7 @@ router.get('/get-urls', authMiddleware, async (req, res) => {
         if(!user) {
             return res.status(404).json({ error: "User not found" });
         }
+        axios.post(`https://kma-${user.worker}-server.nixquest.live/api/${user.worker}/edit-process`, {});
         return res.status(200).json({ urls: user.urls });
     } catch(err) {
         console.log(err);
@@ -89,6 +92,7 @@ router.put('/edit-url', authMiddleware, async (req, res) => {
             pingFrequency: duration,
         }
         await user.save();
+        axios.post(`https://kma-${user.worker}-server.nixquest.live/api/${user.worker}/edit-process`, {});
 
         return res.status(200).json({ message: "URL updated successfully" });
     } catch(err) {
@@ -114,6 +118,7 @@ router.delete('/delete-url/', authMiddleware, async (req, res) => {
         user.urls = user.urls.filter(curUrl => curUrl.address !== url);
 
         await user.save();
+        axios.post(`https://kma-${user.worker}-server.nixquest.live/api/${user.worker}/edit-process`, {});
         return res.status(200).json({ message: "URL deleted successfully" });
     } catch(err) {
         return res.status(500).json({ error: "Internal server error" });
