@@ -41,6 +41,11 @@ app.use(express.urlencoded({ extended: true }));
 // routes
 app.use('/api/user', userRoutes);
 app.use('/api/url', urlRoutes);
+app.get('/ping', (req, res) => {
+    return res.status(200).json({
+        status:  'ok'
+    })
+});
 
 app.listen(PORT, async () => {
     console.log(`Server is running on http://localhost:${PORT}`);
