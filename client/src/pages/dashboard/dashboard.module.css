@@ -1,0 +1,29 @@
+.dashboard {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 70svh;
+    width: 500px;
+}
+.dashboard > div,h1,h2{
+    padding: 10px 10px;
+    width: 400px;
+    text-align: center;
+}
+.buttons {
+    padding: 5px 20px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+}
+.editAndDeleteButtons {
+    display: flex;
+    width: 400px;
+    gap: 20px;
+    justify-content: center;
+    padding-top: 10px;
+}
+.addUrl{
+
+}

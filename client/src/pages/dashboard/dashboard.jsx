@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
 
-
 const AddUrl = React.lazy(() => import("./components/addUrl.jsx"));
 const EditUrl = React.lazy(() => import("./components/editUrl.jsx"));
 
@@ -105,7 +104,7 @@ const Dashboard = () => {
     }
 
     return (
-        <section>
+        <section className={styles.dashboard}>
             <h1>Dashboard</h1>
             <p>This is the dashboard page.</p>
             <p>Welcome to the dashboard!</p>
@@ -116,19 +115,21 @@ const Dashboard = () => {
 
 
             <h2>URLs</h2>
-            <button onClick={() => setAddUrlVisible(!addUrlVisible)}>Add URL</button>
+            <button className={styles.buttons} onClick={() => setAddUrlVisible(!addUrlVisible)}>Add URL</button>
             {addUrlVisible && <AddUrl setUrls={setUrls} setChanges={setChanges} setAddUrlVisible={setAddUrlVisible} />}
             {Array.isArray(urls) && urls.map((url, id) => (
                 <div key={id}>
                     <p>Address: {url.address}</p>
                     <p>Status: {url.status}</p>
-                    <button onClick={() => setEditUrlVisible(!editUrlVisible)}>Edit URL</button>
-                    <button onClick={() => handleUrlDelete(url.address)} >Delete Url</button>
+                    <div className={styles.editAndDeleteButtons}>
+                        <button className={styles.buttons} onClick={() => setEditUrlVisible(!editUrlVisible)}>Edit URL</button>
+                        <button className={styles.buttons} onClick={() => handleUrlDelete(url.address)} >Delete Url</button>
+                    </div>
                     {editUrlVisible && <EditUrl url={url} setUrls={setUrls} setChanges={setChanges} setEditUrlVisible={setEditUrlVisible} urlId={id} />}
                 </div>
             ))}
 
-            <button onClick={handleLogout}>Logout</button>
+            <button className={styles.buttons} onClick={handleLogout}>Logout</button>
         </section>
     )
 }
