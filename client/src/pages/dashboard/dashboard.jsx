@@ -120,7 +120,6 @@ const Dashboard = () => {
             {Array.isArray(urls) && urls.map((url, id) => (
                 <div key={id}>
                     <p>Address: {url.address}</p>
-                    <p>Status: {url.status}</p>
                     <div className={styles.editAndDeleteButtons}>
                         <button className={styles.buttons} onClick={() => setEditUrlVisible(!editUrlVisible)}>Edit URL</button>
                         <button className={styles.buttons} onClick={() => handleUrlDelete(url.address)} >Delete Url</button>
