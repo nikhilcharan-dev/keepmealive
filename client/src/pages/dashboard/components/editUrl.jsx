@@ -60,18 +60,21 @@ const EditUrl = ({ url, setUrls, setChanges, setEditUrlVisible, urlId }) => {
             setError('Failed to update URL');
         } finally {
             setLoading(false);
+            setEditUrlVisible(prev => !prev)
         }
     }
 
     return (
-        <section >
+        <section>
             <form className={styles.form} onSubmit={editUrl}>
-                <div>
+                <div className={styles.edit}>
                     <input type="text" placeholder="Enter URL" value={newUrl} onChange={(e) => setNewUrl(e.target.value)} />
-                    <p>{isValid ? "valid" : "in-valid"}</p>
+                    <p className={styles.indicator}>{isValid ? "valid" : "in-valid"}</p>
                 </div>
-
-                <button type="submit">Save Changes</button>
+                <div className={styles.buttons}>
+                    <button type="submit">Save Changes</button>
+                    <button onClick={() => setEditUrlVisible(prev => !prev)}>Cancel</button>
+                </div>
             </form>
         </section>
     )

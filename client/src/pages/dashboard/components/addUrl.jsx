@@ -64,11 +64,14 @@ const AddUrl = ({ setUrls, setChanges, setAddUrlVisible }) => {
     return (
         <section >
             <form className={styles.form} onSubmit={addUrl}>
-                <div>
-                    https://<input type="text" placeholder="Enter URL" onChange={(e) => setUrl(e.target.value)} />
-                    { url.length > 0 && <p>{isValid ? "✅valid" : "❌in-valid"}</p> }
+                <div className={styles.main}>
+                    <p>https:// </p><input type="text" placeholder="Enter URL" onChange={(e) => setUrl(e.target.value)} />
+                    { url.length > 0 && <p className={styles.indicator}>{isValid ? "✅valid" : "❌in-valid"}</p> }
                 </div>
-                <button type="submit">Add URL</button>
+                <div className={styles.buttons}>
+                    <button type="submit">Add URL</button>
+                    <button type='submit' onClick={() => setAddUrlVisible(prev => !prev)}>Cancel</button>
+                </div>
             </form>
         </section>
     )

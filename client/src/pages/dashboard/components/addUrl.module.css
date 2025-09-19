@@ -1,0 +1,83 @@
+.form {
+    height: 80vh;
+    width: 100vw;
+    position: absolute;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    backdrop-filter: blur(5px);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+
+    gap: 1rem;
+
+    color: white;
+}
+
+.main {
+    border: 2px solid black;
+    padding: 5vh 5vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    border-radius: 10px;
+    width: 40%;
+}
+
+.main p {
+    font-size: 2rem;
+    margin-right: 1%;
+}
+
+.main .indicator {
+    margin-left: 1rem;
+    font-size: 1.2rem;
+}
+
+.form input {
+    font-size: 1.5rem;
+    font-family: daysofcharity, sans-serif;
+}
+
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.buttons button {
+    border: none;
+    border-radius: 15px;
+    color: white;
+    padding: 5px;
+    background-color: black;
+    font-size: 1.2rem;
+    font-family: daysofcharity, sans-serif;
+    transition: all 0.3s ease-in-out;
+}
+
+.buttons button:hover {
+    transform: translateY(-5px);
+    background-color: white;
+    font-weight: bold;
+    color: black;
+    cursor: pointer;
+    text-decoration: none;
+    outline: none;
+    border: none;
+}
+
+.buttons button:active {
+    transform: translateY(5px);
+    background-color: black;
+    color: white;
+}

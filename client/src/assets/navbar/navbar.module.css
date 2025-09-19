@@ -1,0 +1,50 @@
+nav, ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+}
+
+li {
+    font-size: 40px;
+}
+
+li:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    cursor: pointer;
+}
+
+.logo {
+    margin-left: 5rem;
+    font-size: 50px;
+    transition: all 0.3s ease-in-out;
+    animation: inout 3s infinite;
+}
+
+nav {
+    justify-content: space-between;
+    border-bottom: 1px solid lightgray;
+}
+
+ul {
+    margin-right: 5vw;
+    gap: 2rem;
+}
+
+@keyframes inout {
+    0% {
+        font-size: 35px;
+        opacity: 0;
+    }
+    50% {
+        font-size: 40px;
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        font-size: 50px;
+    }
+}

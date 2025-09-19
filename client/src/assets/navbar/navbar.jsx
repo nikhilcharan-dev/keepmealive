@@ -1,14 +1,14 @@
-import './navbar.module.css';
+import styles from './navbar.module.css';
 
 const Navbar = () => {
 
     return (
-        <nav >
-            <aside>
-
-            </aside>
+        <nav>
+            <h1 className={styles.logo}>KeepMeAlive </h1>
             <ul>
+                <li>Docs</li>
                 <li>About </li>
+                <li>Dashboard</li>
             </ul>
         </nav>
     )
