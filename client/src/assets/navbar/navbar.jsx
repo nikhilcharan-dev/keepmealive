@@ -1,14 +1,14 @@
 import styles from './navbar.module.css';
+import {useNavigate} from 'react-router-dom';
 
 const Navbar = () => {
-
+    const navigate = useNavigate();
     return (
         <nav>
             <h1 className={styles.logo}>KeepMeAlive </h1>
             <ul>
-                <li>Docs</li>
-                <li>About </li>
-                <li>Dashboard</li>
+                <li onClick={() => navigate('/docs')}>Docs</li>
+                <li onClick={() => navigate('/')}>Dashboard</li>
             </ul>
         </nav>
     )

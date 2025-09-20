@@ -11,6 +11,7 @@ dotenv.config();
 // routes import
 import userRoutes from './routes/user.js';
 import urlRoutes from './routes/url.js';
+import User from "./models/user.js";
 
 const app = express();
 const PORT = process.env.PORT || 5000;

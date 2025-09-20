@@ -5,6 +5,23 @@ import jwt from 'jsonwebtoken';
 
 const router = Router();
 
+router.get('/users-count', async (req, res) => {
+    try {
+        const usersCount = await User.countDocuments({});
+        const users = await User.find().lean();
+        const urlsCount = users.map(user => user.urls.length);
+        return res.status(200).json({
+            usersCount,
+            urlsCount,
+        })
+    } catch(err) {
+        console.log(err);
+        return res.status(500).json({
+            message: 'Internal Server Error',
+        })
+    }
+})
+
 router.post("/register", async (req, res) => {
     try {
         const { username, email } = req.body;

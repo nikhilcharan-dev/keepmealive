@@ -3,7 +3,78 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 70vh;
     width: 100vw;
     gap: 1rem;
+}
+
+.brand {
+    text-align: center;
+    margin-top: 10vh;
+    font-size: 3rem;
+}
+
+.moto {
+    font-size: 1.3rem;
+    margin-top: 2vh;
+    text-align: center;
+    margin-left: 10%;
+}
+
+.form input {
+    width: 30%;
+    padding: 5px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-family: daysofcharity, sans-serif;
+}
+
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.buttons button {
+    border: none;
+    border-radius: 15px;
+    color: white;
+    padding: 10px;
+    background-color: black;
+    font-size: 1.2rem;
+    font-family: daysofcharity, sans-serif;
+    transition: all 0.3s ease-in-out;
+}
+
+.buttons button:hover {
+    transform: scale(1.1);
+    background-color: white;
+    font-weight: bold;
+    color: black;
+    cursor: pointer;
+    text-decoration: none;
+    outline: none;
+    border: none;
+}
+
+.buttons button:active {
+    transform: scale(1);
+    background-color: black;
+    color: white;
+}
+
+.buttons p {
+    /*font-weight: bolder;*/
+    font-size: 1.5rem;
+    color: deepskyblue;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+}
+
+.buttons p:hover {
+    color: blue;
+    cursor: pointer;
 }

@@ -38,15 +38,19 @@ const Authentication = () => {
 
     if(!isRegistered) return (
         <section >
+            <h1 className={styles.brand}>Keep Me Alive !</h1>
+            <p className={styles.moto}> - An Open Source Project</p>
             <form onSubmit={handleRegister} className={styles.form}>
                 <input type="text" placeholder="Enter Username" onChange={(e) => setUser(e.target.value)} />
                 <input type="email" placeholder="Enter Email" onChange={(e) => setEmail(e.target.value)} />
-                <button type="submit" onClick={(e) => {
-                    e.preventDefault();
-                    setIsRegistered(true)
-                }
-                }>Already registered? SignIn</button>
-                <button type="submit">Submit</button>
+                <div className={styles.buttons}>
+                    <button type="submit" onClick={(e) => {
+                        e.preventDefault();
+                        setIsRegistered(true)
+                    }
+                    }>Already registered? SignIn</button>
+                    <button type="submit">Submit</button>
+                </div>
             </form>
         </section>
     )
@@ -73,9 +77,14 @@ const Authentication = () => {
 
     return (
         <section >
+            <h1 className={styles.brand}>Keep Me Alive !</h1>
+            <p className={styles.moto}> - An Open Source Project</p>
             <form onSubmit={handleLogin} className={styles.form}>
                 <input type="text" placeholder="Enter Username or Email" onChange={(e) => setUser(e.target.value)} />
-                <button type="submit">Submit</button>
+                <div className={styles.buttons}>
+                    <button type="submit">Submit</button>
+                    <p onClick={() => setIsRegistered(false)}>Sign up!</p>
+                </div>
             </form>
         </section>
     )
