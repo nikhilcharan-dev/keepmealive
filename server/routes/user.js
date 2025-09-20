@@ -9,7 +9,7 @@ router.get('/users-count', async (req, res) => {
     try {
         const usersCount = await User.countDocuments({});
         const users = await User.find().lean();
-        const urlsCount = users.map(user => user.urls.length);
+        const urlsCount = users.map(user => user.urls.length).reduce((sum, cur) => sum + cur, 0);
         return res.status(200).json({
             usersCount,
             urlsCount,

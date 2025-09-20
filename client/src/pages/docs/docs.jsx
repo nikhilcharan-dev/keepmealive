@@ -10,7 +10,10 @@ const code =
 }
 `;
 export default function Docs() {
-    const [stats, setStats] = useState(null);
+    const [stats, setStats] = useState({
+        usersCount: 0,
+        urlsCount: 0,
+    });
     useEffect(() => {
         const fetchData = async () => {
             const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/user/users-count`);
@@ -18,7 +21,7 @@ export default function Docs() {
             console.log(res.data);
         }
         fetchData();
-    })
+    }, [])
     return (
         <section className={styles.docs}>
             <h1>Users: {stats.usersCount} & Urls: {stats.urlsCount}</h1>
