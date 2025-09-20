@@ -27,7 +27,7 @@ export default function Docs() {
             <h1>Users: {stats.usersCount} & Urls: {stats.urlsCount}</h1>
             <p>To efficiently utilise this service. We as Team KMA(Keep Me Alive) suggests you to follow these steps.</p>
             <p>Our Backend | KMA Server by default pings the user's urls provided by him for every 5mins | "*/5 * * * *", Via a <code>GET</code> request. </p>
-            <p>So, To increase efficient use of this service. We would like to follow this step.</p>
+            <p>So, To increase efficient use of this service. We would like you to follow this steps.</p>
             <article>
                 <h5>&gt; Create an simple GET endpoint</h5>
                 <code className={styles.code}>

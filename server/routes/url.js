@@ -92,7 +92,7 @@ router.put('/edit-url', authMiddleware, async (req, res) => {
             pingFrequency: duration,
         }
         await user.save();
-        axios.post(`https://kma-${user.worker}-server.nixquest.live/api/${user.worker}/edit-process`, {});
+        const worker = axios.post(`https://kma-${user.worker}-server.nixquest.live/api/${user.worker}/edit-process`, {});
 
         return res.status(200).json({ message: "URL updated successfully" });
     } catch(err) {
@@ -118,7 +118,7 @@ router.delete('/delete-url/', authMiddleware, async (req, res) => {
         user.urls = user.urls.filter(curUrl => curUrl.address !== url);
 
         await user.save();
-        axios.post(`https://kma-${user.worker}-server.nixquest.live/api/${user.worker}/edit-process`, {});
+        const worker = axios.post(`https://kma-${user.worker}-server.nixquest.live/api/${user.worker}/edit-process`, {});
         return res.status(200).json({ message: "URL deleted successfully" });
     } catch(err) {
         return res.status(500).json({ error: "Internal server error" });

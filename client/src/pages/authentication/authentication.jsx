@@ -28,9 +28,6 @@ const Authentication = () => {
                 }
             });
             setIsRegistered(true);
-            setUser('');
-            setEmail('');
-            console.log(response.data);
         } catch (error) {
             console.error(error);
         }
